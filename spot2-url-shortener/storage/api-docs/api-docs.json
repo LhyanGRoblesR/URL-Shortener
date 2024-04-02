@@ -1,0 +1,171 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "URL Shortener API",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/auth/login": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Loguearse para obtener token de acceso",
+                "operationId": "8cb7742ae98d0990acb2907c4e00bf24",
+                "parameters": [
+                    {
+                        "name": "email",
+                        "in": "query",
+                        "description": "Correo",
+                        "required": true
+                    },
+                    {
+                        "name": "password",
+                        "in": "query",
+                        "description": "Contraseña",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "example": {
+                                    "email": "admin@spot2.mx",
+                                    "password": "admin"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Operación exitosa"
+                    },
+                    "401": {
+                        "description": "Credenciales incorrectas"
+                    }
+                }
+            }
+        },
+        "/auth/me": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Obtener datos del usuario por el token",
+                "operationId": "d80381cd6c0b37d694845cb9058dbe5e",
+                "responses": {
+                    "200": {
+                        "description": "Operación exitosa"
+                    },
+                    "400": {
+                        "description": "Token expirado"
+                    }
+                }
+            }
+        },
+        "/auth/logout": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Cerrar sesion e inhabilitar token de acceso",
+                "operationId": "0d29c740dc06d77602af8095bf4654cc",
+                "responses": {
+                    "200": {
+                        "description": "Operación exitosa"
+                    }
+                }
+            }
+        },
+        "/url/shortener": {
+            "post": {
+                "tags": [
+                    "URL"
+                ],
+                "summary": "Acorta la url",
+                "operationId": "f9d01c43fe3f152eeccf117ccf8782f7",
+                "parameters": [
+                    {
+                        "name": "toUrl",
+                        "in": "query",
+                        "description": "URL a acortar",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "": {
+                                        "properties": {
+                                            "toUrl": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "toUrl": "test"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Operación exitosa"
+                    }
+                }
+            }
+        },
+        "/{key_url}": {
+            "get": {
+                "tags": [
+                    "URL"
+                ],
+                "summary": "Acorta la url",
+                "operationId": "61a72acc492f0610f52867bfca43d8d1",
+                "responses": {
+                    "200": {
+                        "description": "Operación exitosa"
+                    },
+                    "404": {
+                        "description": "URL no encontrada"
+                    }
+                }
+            }
+        },
+        "/url/": {
+            "get": {
+                "tags": [
+                    "URL"
+                ],
+                "summary": "Ver todas mis URL's",
+                "operationId": "e4ef38ca657a2f88f6a25874aa4737f1",
+                "responses": {
+                    "200": {
+                        "description": "Operación exitosa"
+                    },
+                    "204": {
+                        "description": "No se encontraron url acortadas"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "bearer_token": {
+                "type": "apiKey",
+                "description": "Enter token in format (Bearer <token>)",
+                "name": "Authorization",
+                "in": "header"
+            }
+        }
+    }
+}
