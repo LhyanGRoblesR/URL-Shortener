@@ -21,4 +21,4 @@ Acortador de url's basico con documentacion Open API integrado con JWT
   ```
 
 ## Cita
-Creado por una prueba tecnica por spot2
+Creado por una prueba tecnica para spot2
