@@ -5,7 +5,7 @@ import { FormEvent, useEffect, useState } from 'react'
 import '../css/index.css'
 import "bootstrap/dist/css/bootstrap.min.css";
 
-export default function loginPage() {
+export default function LoginPage() {
 
     const getCookie = (name: string) => {
         const cookieString = document.cookie;
@@ -23,7 +23,7 @@ export default function loginPage() {
         event.preventDefault()
  
         const formData = new FormData(event.currentTarget)
-        const url = 'http://127.0.0.1:8000/api/auth/login';
+        const url = 'http://3.80.228.124/api/auth/login';
         console.log(formData);
         const response = await fetch(url, {
             method: 'POST',

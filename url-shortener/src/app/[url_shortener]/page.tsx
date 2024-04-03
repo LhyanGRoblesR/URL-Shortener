@@ -4,7 +4,7 @@ import { FormEvent, useEffect, useState } from 'react'
 import { usePathname, useSearchParams } from 'next/navigation'
 import "bootstrap/dist/css/bootstrap.min.css";
 
-export default function urlShortener() {
+export default function UrlShortener() {
     const pathname = usePathname()
     const searchParams = useSearchParams()
     const fullUrl = `${pathname}${(searchParams.size > 0 ? '?' + searchParams : '')}`
@@ -31,7 +31,7 @@ export default function urlShortener() {
 
     const toUrlShortener = async () => {
         
-        const url = 'http://127.0.0.1:8000/api' + fullUrl;
+        const url = 'http://3.80.228.124/api' + fullUrl;
         console.log(url);
         const response = await fetch(url, {
             method: 'GET',
@@ -66,7 +66,7 @@ export default function urlShortener() {
         event.preventDefault()
  
         const formData = new FormData(event.currentTarget)
-        const url = 'http://127.0.0.1:8000/api/auth/logout'
+        const url = 'http://3.80.228.124/api/auth/logout'
         console.log(formData);
         const response = await fetch(url, {
             method: 'POST',

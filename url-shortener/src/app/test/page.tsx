@@ -4,7 +4,7 @@ import { FormEvent, useEffect, useState } from 'react'
 import { usePathname, useSearchParams } from 'next/navigation'
 import "bootstrap/dist/css/bootstrap.min.css";
 
-export default function urlShortener() {
+export default function TestPage() {
     const pathname = usePathname()
     const searchParams = useSearchParams()
     const fullUrl = `${pathname}${(searchParams.size > 0 ? '?' + searchParams : '')}`

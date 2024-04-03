@@ -33,7 +33,7 @@ export default function Home() {
         event.preventDefault()
  
         const formData = new FormData(event.currentTarget)
-        const url = 'http://127.0.0.1:8000/api/url/shortener';
+        const url = 'http://3.80.228.124/api/url/shortener';
         console.log(formData);
         const response = await fetch(url, {
             method: 'POST',
@@ -52,7 +52,7 @@ export default function Home() {
     }
 
     const getUrlShortener = async () => {
-        const url = 'http://127.0.0.1:8000/api/url';
+        const url = 'http://3.80.228.124/api/url';
         const response = await fetch(url, {
             method: 'GET',
             headers: {
@@ -74,7 +74,7 @@ export default function Home() {
         event.preventDefault()
  
         const formData = new FormData(event.currentTarget)
-        const url = 'http://127.0.0.1:8000/api/auth/logout'
+        const url = 'http://3.80.228.124/api/auth/logout'
         console.log(formData);
         const response = await fetch(url, {
             method: 'POST',
