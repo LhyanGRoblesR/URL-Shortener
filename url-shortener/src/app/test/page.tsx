@@ -1,13 +1,9 @@
 'use client'
 
 import { FormEvent, useEffect, useState } from 'react'
-import { usePathname, useSearchParams } from 'next/navigation'
 import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function TestPage() {
-    const pathname = usePathname()
-    const searchParams = useSearchParams()
-    const fullUrl = `${pathname}${(searchParams.size > 0 ? '?' + searchParams : '')}`
     const [cookieToken, setCookieToken] = useState('');
 
     const getCookie = (name: string) => {
@@ -64,8 +60,6 @@ export default function TestPage() {
             <div className="container mt-2">
                 <div className="mt-2">
                     <h1>Test redireccionamiento correcto si existo</h1>
-                    <h1>{fullUrl}</h1>
-                    
                 </div>
                 
             </div>
