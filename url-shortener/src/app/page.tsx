@@ -138,9 +138,9 @@ export default function Home() {
                         <tbody>
                         {rowUrlShortener.map((row, key) => (
                             <tr key={key}>
-                                <td>{row.id}</td>
-                                <td><a href={row.key_url} target='_blank'>{row.key_url}</a></td>
-                                <td><a href={row.to_url} target='_blank'>{row.to_url}</a></td>
+                                <td>{row['id']}</td>
+                                <td><a href={row['key_url']} target='_blank'>{row['key_url']}</a></td>
+                                <td><a href={row['to_url']} target='_blank'>{row['to_url']}</a></td>
                             </tr>
                         ))}
                         </tbody>
