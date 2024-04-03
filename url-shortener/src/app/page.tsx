@@ -113,7 +113,7 @@ export default function Home() {
             </nav>
             <div className="container mt-2 ">
                 <div className="mt-2">
-                    <h1 className='text-center'>Acortar URL's</h1>
+                    <h1 className='text-center'>Acortar URLs</h1>
                     
                     <form onSubmit={generateUrl}>
                         <div className="input-group mb-3">
